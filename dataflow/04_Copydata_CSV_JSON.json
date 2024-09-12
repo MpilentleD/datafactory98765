@@ -1,0 +1,54 @@
+{
+	"name": "04_Copydata_CSV_JSON",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "datalake2468",
+						"type": "DatasetReference"
+					},
+					"name": "CopyDataCSVJSON"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "datalake2468_CSV_JSON_Destination",
+						"type": "DatasetReference"
+					},
+					"name": "CopyDataCSVSinkStream"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Correlationid as string,",
+				"          Operationname as string,",
+				"          Status as string,",
+				"          Eventcategory as string,",
+				"          Level as string,",
+				"          Time as timestamp,",
+				"          Subscription as string,",
+				"          Eventinitiatedby as string,",
+				"          Resourcetype as string,",
+				"          Resourcegroup as string,",
+				"          Resource as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CopyDataCSVJSON",
+				"CopyDataCSVJSON sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['ActivityLog-01.json'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> CopyDataCSVSinkStream"
+			]
+		}
+	}
+}

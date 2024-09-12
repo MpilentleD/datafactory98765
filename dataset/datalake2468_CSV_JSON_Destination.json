@@ -1,0 +1,19 @@
+{
+	"name": "datalake2468_CSV_JSON_Destination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalake2468",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "json"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
