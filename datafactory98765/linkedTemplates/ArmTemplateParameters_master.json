@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactory98765"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSynapseAnalyticsLinkedService_connectionString": {
+			"value": ""
+		},
+		"appdb_connectionString": {
+			"value": ""
+		},
+		"datalake2468_accountKey": {
+			"value": ""
+		},
+		"dataworkspace2468_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://datalake2468.dfs.core.windows.net/"
+		},
+		"datalake2468_properties_typeProperties_url": {
+			"value": "https://datalake2468.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
